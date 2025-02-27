@@ -1,2 +1,2 @@
 # TickTackToe
- just a simply python tick tack toe game
+ just a simple python tick tack toe game
