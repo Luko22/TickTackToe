@@ -52,6 +52,7 @@ def playttt():
             while not col.isdigit() or int(col) not in acc_values:
                 print("Wrong value, enter a DIGIT from 1 to 3")
                 col = int(input("Player 1 enter a column (1-3): "))-1
+            col = int(col) - 1
 
             if plays(row, col):
                 if d["row" + row][col] == " ":
@@ -74,7 +75,8 @@ def playttt():
             col = input("Player 2 enter a column (1-3): ")
             while not col.isdigit() or int(col) not in acc_values:
                 print("Wrong value, enter a DIGIT from 1 to 3")
-                col = int(input("Player 2 enter a column (1-3): "))-1
+                col = input("Player 2 enter a column (1-3): ")
+            col = int(col) - 1
 
             if plays(row, col):
                 if d["row" + row][col] == " ":
@@ -100,5 +102,6 @@ def playttt():
         print("Player 1 wins!")
     else:
         print("Player 2 wins!")
+# end of playttt function
 
 playttt()
