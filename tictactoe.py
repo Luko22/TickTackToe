@@ -41,55 +41,59 @@ def playttt():
             return False
 
     while any(" " in row for row in list(d.values())) and check_winner(d) is None:
-    
-        if player % 2 == 0:
-            row = input("Player 1 Enter a row (1-3): ")
-            while not row.isdigit() or int(row) not in acc_values:
-                print("Wrong value, enter a DIGIT from 1 to 3")
+        ############
+        try:
+
+            if player % 2 == 0:
                 row = input("Player 1 Enter a row (1-3): ")
+                while not row.isdigit() or int(row) not in acc_values:
+                    print("Wrong value, enter a DIGIT from 1 to 3")
+                    row = input("Player 1 Enter a row (1-3): ")
 
-            col = input("Player 1 enter a column (1-3): ")
-            while not col.isdigit() or int(col) not in acc_values:
-                print("Wrong value, enter a DIGIT from 1 to 3")
-                col = int(input("Player 1 enter a column (1-3): "))-1
-            col = int(col) - 1
+                col = input("Player 1 enter a column (1-3): ")
+                while not col.isdigit() or int(col) not in acc_values:
+                    print("Wrong value, enter a DIGIT from 1 to 3")
+                    col = int(input("Player 1 enter a column (1-3): "))-1
+                col = int(col) - 1
 
-            if plays(row, col):
-                if d["row" + row][col] == " ":
-                    d["row" + row][col] = "X"
-                    print(f"Player 1 played {row},{col + 1}")
-                    # alr_played.append((int(row), col))
-                    player += 1
-                else:
-                    print("This position is already played, please choose another one")
-            print()
-            print(alr_played)
-            print()
+                if plays(row, col):
+                    if d["row" + row][col] == " ":
+                        d["row" + row][col] = "X"
+                        print(f"Player 1 played {row},{col + 1}")
+                        # alr_played.append((int(row), col))
+                        player += 1
+                    else:
+                        print("This position is already played, please choose another one")
+                print()
+                print(alr_played)
+                print()
 
-        else:
-            row = input("Player 2 Enter a row (1-3): ")
-            while not row.isdigit() or int(row) not in acc_values:
-                print("Wrong value, enter a DIGIT from 1 to 3")
+            else:
                 row = input("Player 2 Enter a row (1-3): ")
+                while not row.isdigit() or int(row) not in acc_values:
+                    print("Wrong value, enter a DIGIT from 1 to 3")
+                    row = input("Player 2 Enter a row (1-3): ")
 
-            col = input("Player 2 enter a column (1-3): ")
-            while not col.isdigit() or int(col) not in acc_values:
-                print("Wrong value, enter a DIGIT from 1 to 3")
                 col = input("Player 2 enter a column (1-3): ")
-            col = int(col) - 1
+                while not col.isdigit() or int(col) not in acc_values:
+                    print("Wrong value, enter a DIGIT from 1 to 3")
+                    col = input("Player 2 enter a column (1-3): ")
+                col = int(col) - 1
 
-            if plays(row, col):
-                if d["row" + row][col] == " ":
-                    d["row" + row][col] = "O"
-                    print(f"Player 2 played {row},{col + 1}")
+                if plays(row, col):
+                    if d["row" + row][col] == " ":
+                        d["row" + row][col] = "O"
+                        print(f"Player 2 played {row},{col + 1}")
 
-                    # alr_played.append((int(row), col))
-                    player += 1
-                else:
-                    print("This position is already played, please choose another one")
+                        # alr_played.append((int(row), col))
+                        player += 1
+                    else:
+                        print("This position is already played, please choose another one")
+                
+            print(f"Moves played: {alr_played}")
             print()
-            print(alr_played)
-            print()
+        except:
+            print("Invalid input, please enter a digit from 1 to 3")
 
         disp(d["row1"], d["row2"], d["row3"])
 
