@@ -109,3 +109,5 @@ def playttt():
 # end of playttt function
 
 playttt()
+
+##add GUI functionalities
